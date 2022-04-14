@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
         users_users_path
       when Doctor
         doctors_doctors_path
+      when AdminUser
+        admin_dashboard_path(resource)
       end
     end
 
