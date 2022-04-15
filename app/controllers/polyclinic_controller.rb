@@ -1,6 +1,4 @@
-class PolyclinicController < ApplicationController
-    # before_action :authenticate_user!
-    
+class PolyclinicController < ApplicationController 
     def index
     end
 end
