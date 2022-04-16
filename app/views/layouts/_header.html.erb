@@ -3,18 +3,14 @@
   <div class="header-right">
     <a class="active" href="#home">Home</a>
     
-    <% if user_signed_in? %>
-        <a> <%= button_to "Log out as a user", destroy_user_session_path, method: :delete, class:"myClass" %> </a>
+    <% if !user_signed_in? && !doctor_signed_in? %>
+      <a href="<%= new_user_session_path %>">sign in as a user</a>
+      <a href="<%= new_user_registration_path %>">sign up as a user</a>
+      <a href="<%= new_doctor_session_path %>">sign in as a doctor</a>
+    <% elsif user_signed_in? %>
+      <a> <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"myClass" %> </a>
     <% else %>
-        <a href="<%= new_user_session_path %>">sign in as a user</a>
-        <a href="<%= new_user_registration_path %>">sign up as a user</a>
-    <% end %>
-
-    <% if doctor_signed_in? %>
-    <a> <%= button_to "Log out as a doctor", destroy_doctor_session_path, method: :delete, class:"myClass" %> </a>
-    <% else %>
-        <a href="<%= new_doctor_session_path %>">sign in as a doctor</a>
-        <a href="<%= new_doctor_registration_path %>">sign up as a doctor</a>
+      <a> <%= button_to "Log out", destroy_doctor_session_path, method: :delete, class:"myClass" %> </a>
     <% end %>
   </div>
 </div>

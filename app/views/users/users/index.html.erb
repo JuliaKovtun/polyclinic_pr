@@ -1,0 +1,13 @@
+
+<%= link_to 'Profile', users_user_path(@user.id) %>
+
+<h1>Doctors:</h1>
+<ul>
+    <% @doctors.each do |doctor| %>
+        <li>
+            <%= doctor.first_name %>
+            <%= doctor.last_name %> - 
+            <%= doctor.category.title %>
+        </li>
+    <% end %>
+</ul>
