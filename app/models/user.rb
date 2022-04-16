@@ -4,8 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:phone]
-
-  validates :phone, uniqueness: true
+  
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+  validates :phone, uniqueness: true, 
+                    presence: true, 
+                    length: { is: 10 },
+                    numericality: true
+  
 
   def email_required?
     false

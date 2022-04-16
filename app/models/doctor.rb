@@ -6,7 +6,14 @@ class Doctor < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:phone]
 
-  validates :phone, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+  validates :phone, uniqueness: true, 
+                    presence: true, 
+                    length: { is: 10 },
+                    numericality: true
+  validates :category, presence: true
 
   def email_required?
     false
