@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
     def after_sign_in_path_for(resource)
       case resource
       when User
-        users_users_path
-      when Doctor
         doctors_doctors_path
+      when Doctor
+        users_users_path
       when AdminUser
         admin_dashboard_path(resource)
       end

@@ -15,6 +15,8 @@ class Doctor < ApplicationRecord
                     numericality: true
   validates :category, presence: true
 
+  scope :by_category, -> (category_id) { category_id.present? ? where(category_id: category_id ) : all }
+
   def email_required?
     false
    end

@@ -4,11 +4,9 @@ module Users
         before_action :user
 
         def index
-            @doctors = Doctor.all
         end
 
-        def show 
-            
+        def show   
         end
 
         def user
