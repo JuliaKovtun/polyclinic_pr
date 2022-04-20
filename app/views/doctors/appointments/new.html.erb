@@ -1,0 +1,36 @@
+<h1>New Appointment </h1>
+
+<%= form_for @appointment, url: { action: :create } do |form| %>
+    <div>
+        <h5>Doctor: </h5> 
+        
+        <%= @doctor.first_name %> 
+        <%= @doctor.last_name %>
+        <%= form.hidden_field :doctor_id, value: @doctor.id %>
+        <%= form.hidden_field :user_id, value: current_user.id %>  
+    </div>
+
+    <div>
+        <h5>Category: <%= @doctor.category.title %></h5>
+    </div>
+
+    <div>
+        <h5>Phone: <%= @doctor.phone %></h5>
+    </div>
+
+    <div>
+        <%= form.label "Describe your problem:" %><br>
+        <%= form.text_area :comment %>
+    </div>
+
+    <div>
+        <%= form.label "Choose the date:" %><br>
+        <%= form.datetime_local_field :date %>
+    </div>
+
+    <div>
+    <%= form.submit "Create an appointment" %>
+    </div>
+
+<% end %>
+</div>

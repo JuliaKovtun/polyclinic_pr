@@ -1,0 +1,53 @@
+<br></br><br></br><br></br>
+<center>
+<p>
+  <b>Doctor`s first name:</b>
+  <%= @doctor.first_name %>
+</p>
+
+<p>
+  <b>Doctor`s last name:</b>
+  <%= @doctor.last_name %>
+</p>
+
+<p>
+  <b>Doctor`s email:</b>
+  <%= @doctor.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @doctor.phone %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @doctor.category.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @appointment.date %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @appointment.comment %>
+</p>
+
+<p>
+<h6>Your data:</h6>
+  <b>First name:</b>
+  <%= current_user.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= current_user.last_name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= current_user.phone %>
+</p>
+

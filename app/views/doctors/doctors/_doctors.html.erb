@@ -1,11 +1,13 @@
-
 <h1>Doctors:</h1>
+
 <ul>
-    <% @doctors.each do |doctor| %>
-        <li>
-            <%= doctor.first_name %>
-            <%= doctor.last_name %> - 
-            <%= doctor.category.title %>
-        </li>
-    <% end %>
+  <% @doctors.each do |doctor| %>
+    <li>
+      <%= doctor.first_name %>
+      <%= doctor.last_name %> - 
+      <%= doctor.category.title %>
+      <%= link_to "View", doctors_doctor_path(doctor) %>
+      <%= link_to "New Appointment", new_doctors_doctor_appointment_path(doctor) %>
+    </li>
+  <% end %>
 </ul>

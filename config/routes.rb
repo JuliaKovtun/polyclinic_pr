@@ -16,8 +16,12 @@ Rails.application.routes.draw do
   end
 
   namespace :doctors do
-    resources :doctors 
+    resources :doctors do 
+      resources :appointments
+    end
   end
+
+  # resources :appointments
  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "polyclinic#index"
