@@ -1,6 +1,20 @@
 <h1>New Appointment </h1>
 
 <%= form_for @appointment, url: { action: :create } do |form| %>
+
+    <% if @appointment.errors.any? %>
+        <h4>
+            <%= pluralize(@appointment.errors.count, "error")%>
+            prohibited this appointment from being saved: 
+        </h4>
+        <p>There were problems with the following fields:</p>
+        <ul>
+            <% @appointment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul> 
+    <% end %>
+
     <div>
         <h5>Doctor: </h5> 
         

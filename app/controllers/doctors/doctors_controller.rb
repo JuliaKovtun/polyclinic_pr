@@ -1,5 +1,7 @@
 module Doctors
   class DoctorsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
       @doctors = Doctor.all.by_category(params[:category_id]) 
       @categories = Category.all

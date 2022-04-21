@@ -8,7 +8,7 @@ module Doctors
 
     def create
       @appointment = Appointment.new(params[:appointment].permit!)
-      if @appointment.save!
+      if @appointment.save
         redirect_to doctors_doctor_appointment_path(@doctor, @appointment)
       else
         render "new"
