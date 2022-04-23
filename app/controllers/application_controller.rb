@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       when User
         doctors_doctors_path
       when Doctor
-        users_users_path
+        doctors_doctor_appointments_path(current_doctor.id)
       when AdminUser
         admin_dashboard_path(resource)
       end

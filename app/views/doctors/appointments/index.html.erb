@@ -1,0 +1,19 @@
+<h1>Your appointments:</h1>
+<% #doctor can see these appointments, when login %>
+<ul>
+  <% @appointments.each do |appointment| %>
+    <li>
+      <b>Patient`s name:</b>
+      <%= appointment.user.first_name %>
+      <%= appointment.user.last_name %><br>
+      <b>Patient`s phone:</b>
+      <%= appointment.user.phone %><br>
+      <b>Appointment date:</b>
+      <%= appointment.date %><br>
+      <b>Patient`s comment:</b>
+      <%= appointment.comment %><br><br>
+      <%= link_to "add recommendations", new_doctors_doctor_appointment_recommendation_path(current_doctor.id, appointment.id) %>
+
+    </li>
+  <% end %>
+</ul>

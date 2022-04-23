@@ -1,6 +1,6 @@
 module Doctors
   class DoctorsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, only: [:index, :show]
 
     def index
       @doctors = Doctor.all.by_category(params[:category_id]) 

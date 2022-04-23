@@ -1,0 +1,29 @@
+<h1>Create recommendation</h1>
+
+<%= form_for @recommendation, url: { action: :create } do |form| %>
+
+    <% if @recommendation.errors.any? %>
+        <h4>
+            <%= pluralize(@recommendation.errors.count, "error")%>
+            prohibited this recommendation from being saved: 
+        </h4>
+        <p>There were problems with the following fields:</p>
+        <ul>
+            <% @recommendation.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul> 
+    <% end %>
+    
+    <div>
+        <%= form.label "Your recommendations:" %><br>
+        <%= form.text_area :recommendation %>
+        <%= form.hidden_field :appointment_id, value: @appointment.id %>
+
+    </div>
+    
+    <div>
+    <%= form.submit "Create a recommendation" %>
+    </div>
+
+<% end %>

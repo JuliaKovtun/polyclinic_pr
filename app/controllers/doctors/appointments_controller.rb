@@ -1,6 +1,10 @@
 module Doctors
   class AppointmentsController < ApplicationController
-    before_action :set_doctor
+    before_action :set_doctor, except: :index
+
+    def index
+      @appointments = Appointment.all.where(doctor_id: current_doctor.id)
+    end
 
     def new
       @appointment = Appointment.new
