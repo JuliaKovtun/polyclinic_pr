@@ -1,5 +1,6 @@
 <br></br><br></br><br></br>
 <center>
+<% #user see this on doc viwe page %>
 <p>
   <b>First_name:</b>
   <%= @doctor.first_name %>
@@ -25,3 +26,4 @@
   <%= @doctor.category.title %>
 </p>
 
+<%= link_to "New Appointment", new_doctors_doctor_appointment_path(@doctor) %>

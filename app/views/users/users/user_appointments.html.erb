@@ -1,0 +1,17 @@
+<h1>Your appointments:</h1>
+<% # user sees his appointments %>
+<ul>
+  <% @appointments.each do |appointment| %>
+    <li>
+      <b>Doctor: <%= Doctor.find_by(id: appointment.doctor_id).first_name %> </b>
+      <b> <%= Doctor.find_by(id: appointment.doctor_id).last_name %> </b><br>
+      <b>Date: <%= appointment.date %> </b><br>
+      <b>Comment: <%= appointment.comment %> </b><br>
+      <% if appointment.closed %>
+        <b> closed <b><br>
+      <% end %>
+
+      <%= link_to "View", show_appointment_users_user_path(current_user.id, appointment.id) %>
+    </li><br>
+  <% end %>
+</ul>

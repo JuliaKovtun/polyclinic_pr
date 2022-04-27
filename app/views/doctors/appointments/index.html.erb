@@ -11,9 +11,13 @@
       <b>Appointment date:</b>
       <%= appointment.date %><br>
       <b>Patient`s comment:</b>
-      <%= appointment.comment %><br><br>
-      <%= link_to "add recommendations", new_doctors_doctor_appointment_recommendation_path(current_doctor.id, appointment.id) %>
-
+      <%= appointment.comment %><br>
+      
+      <% unless appointment.closed %>
+        <%= link_to "add recommendations", new_doctors_doctor_appointment_recommendation_path(current_doctor.id, appointment.id) %>
+      <% else %>
+        <b> closed <b>
+      <% end %>
     </li>
   <% end %>
 </ul>

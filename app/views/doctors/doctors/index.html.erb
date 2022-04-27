@@ -1,4 +1,7 @@
 <%= link_to 'Profile', users_user_path(current_user) %>
+<%= link_to 'My Appointments', user_appointments_users_user_path(current_user) %>
+
+<% # user see this when log in %>
 
 <%= form_with(url: doctors_doctors_path, method: :get, local: true) do |f| %>
     <%= f.select :category_id, @categories.map{ |category| [category.title, category.id] }, {} %>

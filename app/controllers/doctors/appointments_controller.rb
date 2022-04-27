@@ -12,6 +12,11 @@ module Doctors
 
     def create
       @appointment = Appointment.new(appointment_params)
+      if Appointment.where(doctor_id: @appointment.doctor_id, closed: false).count >= 10
+        redirect_to doctors_doctors_path, notice: "This doctor has already 10 opened appointments!"
+        return
+      end
+
       if @appointment.save
         redirect_to doctors_doctor_appointment_path(@doctor, @appointment)
       else
@@ -20,7 +25,7 @@ module Doctors
     end
 
     def show
-      @appointment = Appointment.find_by(params[:id])
+      @appointment = Appointment.find_by(id: params[:id])
     end
 
     private

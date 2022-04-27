@@ -8,7 +8,12 @@ module Doctors
 
     def create
       @recommendation = Recommendation.new(recommendation_params)
+      unless Recommendation.find_by(appointment_id: @recommendation.appointment_id).nil?
+        redirect_to octors_doctor_appointments_path(current_doctor.id), notice: "This appointment has recommendation!"
+        return
+      end
       if @recommendation.save
+        Appointment.find_by(id: @recommendation.appointment_id).update(closed: true)
         redirect_to doctors_doctor_appointment_recommendation_path(current_doctor, @appointment, @recommendation)
       else
         render "new"

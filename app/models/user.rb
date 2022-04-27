@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:phone]
   
-  has_many :appointments       
+  has_many :appointments   
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true

@@ -1,0 +1,30 @@
+
+<% #user see this %>
+<br></br><br></br><br></br>
+<center>
+
+<h1>Appointment</h1><br><br>
+
+<p>
+<b>Doctor: </b> <%= @doctor.first_name %> 
+<%= @doctor.last_name %>
+</p>
+<p>
+<b>Doctor's phone: </b><%= @doctor.phone %> 
+</p>
+<p>
+  <b>Date:</b>
+  <%= @appointment.date %>
+</p>
+
+<p>
+  <b>Your comment:</b>
+  <%= @appointment.comment %>
+</p>
+
+<% unless @recommendation.blank? %>
+  <p>
+  <b>Recommendation:</b>
+  <%= @recommendation.recommendation %>
+  </p>
+<% end %>

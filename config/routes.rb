@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   }
 
   namespace :users do
-    resources :users 
+    resources :users do
+      member do
+        get :user_appointments
+        get 'show_appointment/:appointment_id', to: 'users#show_appointment', as: 'show_appointment'
+      end
+    end
   end
 
   namespace :doctors do
