@@ -3,7 +3,7 @@ module Doctors
     before_action :set_doctor, except: :index
 
     def index
-      @appointments = Appointment.all.where(doctor_id: current_doctor.id)
+      @appointments = Appointment.all.where(doctor_id: current_doctor.id).reverse
     end
 
     def new

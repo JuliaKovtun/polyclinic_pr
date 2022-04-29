@@ -117,4 +117,9 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  config.assets.precompile += 
+  %w( #{Rails.root}/vendor/assets/stylesheets/active_admin.scss)
+  config.assets.precompile += 
+  %w( #{Rails.root}/vendor/assets/javascripts/active_admin.js)
+
 end

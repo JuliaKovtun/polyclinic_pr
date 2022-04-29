@@ -1,13 +1,15 @@
-<h1>Doctors:</h1>
+<div class="container p-5">
+<h4>Doctors:</h4>
 
-<ul>
+<ul class="list-group list-group-flush p-3">
   <% @doctors.each do |doctor| %>
-    <li>
+    <li class="list-group-item">
       <%= doctor.first_name %>
       <%= doctor.last_name %> - 
-      <%= doctor.category.title %>
-      <%= link_to "View", doctors_doctor_path(doctor) %>
+      <%= doctor.category.title %><br>
+      <%= link_to "View", doctors_doctor_path(doctor), class: "pr-3" %>
       <%= link_to "New Appointment", new_doctors_doctor_appointment_path(doctor) %>
     </li>
   <% end %>
 </ul>
+</div>

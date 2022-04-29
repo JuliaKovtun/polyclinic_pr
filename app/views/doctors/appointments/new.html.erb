@@ -1,50 +1,55 @@
-<h1>New Appointment </h1>
-<% #user create appointment there(user loged in) %>
-<%= form_for @appointment, url: { action: :create } do |form| %>
+<div class="container m-5">
+  <h4>New Appointment </h4>
+  <% #user create appointment there(user loged in) %>
+  <%= form_for @appointment, url: { action: :create } do |form| %>
 
     <% if @appointment.errors.any? %>
-        <h4>
-            <%= pluralize(@appointment.errors.count, "error")%>
-            prohibited this appointment from being saved: 
-        </h4>
+      <div class="alert alert-danger">
+        <h5>
+          <%= pluralize(@appointment.errors.count, "error")%>
+          prohibited this appointment from being saved: 
+        </h5>
         <p>There were problems with the following fields:</p>
         <ul>
-            <% @appointment.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-        </ul> 
+          <% @appointment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
 
-    <div>
-        <h5>Doctor: </h5> 
-        
-        <%= @doctor.first_name %> 
-        <%= @doctor.last_name %>
-        <%= form.hidden_field :doctor_id, value: @doctor.id %>
-        <%= form.hidden_field :user_id, value: current_user.id %>  
+    <div class="field form-group pt-4">
+      <div>Doctor: 
+      <%= @doctor.first_name %> 
+      <%= @doctor.last_name %>
+      </div> 
+      
+      <%= form.hidden_field :doctor_id, value: @doctor.id %>
+      <%= form.hidden_field :user_id, value: current_user.id %>  
+    </div>
+
+    <div class="field form-group">
+      <div>Category: <%= @doctor.category.title %></div>
+    </div>
+
+    <div class="field form-group">
+      <div>Phone: <%= @doctor.phone %></div>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label "Describe your problem:" %><br>
+      <%= form.text_area :comment, class: "form-control w-25" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label "Choose the date:" %><br>
+      <%= form.datetime_local_field :date %>
     </div>
 
     <div>
-        <h5>Category: <%= @doctor.category.title %></h5>
+      <%= form.submit "Create an appointment", class:"btn btn-primary" %>
     </div>
 
-    <div>
-        <h5>Phone: <%= @doctor.phone %></h5>
-    </div>
-
-    <div>
-        <%= form.label "Describe your problem:" %><br>
-        <%= form.text_area :comment %>
-    </div>
-
-    <div>
-        <%= form.label "Choose the date:" %><br>
-        <%= form.datetime_local_field :date %>
-    </div>
-
-    <div>
-    <%= form.submit "Create an appointment" %>
-    </div>
-
-<% end %>
+  <% end %>
+  </div>
 </div>

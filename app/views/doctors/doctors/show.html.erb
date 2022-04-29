@@ -1,6 +1,7 @@
 <br></br><br></br><br></br>
 <center>
 <% #user see this on doc viwe page %>
+<h4 class="pb-4">Doctor's information:</h4>
 <p>
   <b>First_name:</b>
   <%= @doctor.first_name %>
@@ -26,4 +27,4 @@
   <%= @doctor.category.title %>
 </p>
 
-<%= link_to "New Appointment", new_doctors_doctor_appointment_path(@doctor) %>
+<%= link_to "New Appointment", new_doctors_doctor_appointment_path(@doctor), class: "btn btn-primary" %>

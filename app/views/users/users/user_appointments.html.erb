@@ -1,17 +1,20 @@
-<h1>Your appointments:</h1>
+<div class="container p-5">
+<h4>Your appointments:</h4>
 <% # user sees his appointments %>
-<ul>
+<ul class="list-group list-group-flush p-3">
   <% @appointments.each do |appointment| %>
-    <li>
-      <b>Doctor: <%= Doctor.find_by(id: appointment.doctor_id).first_name %> </b>
-      <b> <%= Doctor.find_by(id: appointment.doctor_id).last_name %> </b><br>
-      <b>Date: <%= appointment.date %> </b><br>
-      <b>Comment: <%= appointment.comment %> </b><br>
+    <li class="list-group-item">
       <% if appointment.closed %>
-        <b> closed <b><br>
+        <div class="text-success">Appointment closed </div>
       <% end %>
+      <div>Doctor: <%= Doctor.find_by(id: appointment.doctor_id).first_name %> </b>
+      <%= Doctor.find_by(id: appointment.doctor_id).last_name %><br>
+      Date: <%= appointment.date %><br>
+      Comment: <%= appointment.comment %>
+      </div>
 
       <%= link_to "View", show_appointment_users_user_path(current_user.id, appointment.id) %>
-    </li><br>
+    </li>
   <% end %>
 </ul>
+</div>

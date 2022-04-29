@@ -1,23 +1,26 @@
-<h1>Your appointments:</h1>
-<% #doctor can see these appointments, when login %>
-<ul>
-  <% @appointments.each do |appointment| %>
-    <li>
-      <b>Patient`s name:</b>
-      <%= appointment.user.first_name %>
-      <%= appointment.user.last_name %><br>
-      <b>Patient`s phone:</b>
-      <%= appointment.user.phone %><br>
-      <b>Appointment date:</b>
-      <%= appointment.date %><br>
-      <b>Patient`s comment:</b>
-      <%= appointment.comment %><br>
-      
-      <% unless appointment.closed %>
-        <%= link_to "add recommendations", new_doctors_doctor_appointment_recommendation_path(current_doctor.id, appointment.id) %>
-      <% else %>
-        <b> closed <b>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="container p-5">
+  <h4>Your appointments:</h4>
+  <% #doctor can see these appointments, when login %>
+  <ul class="list-group list-group-flush p-3">
+    <% @appointments.each do |appointment| %>
+      <li class="list-group-item">
+        <div><b>Patient`s name:</b>
+        <%= appointment.user.first_name %>
+        <%= appointment.user.last_name %><br>
+        <b>Patient`s phone:</b>
+        <%= appointment.user.phone %><br>
+        <b>Appointment date:</b>
+        <%= appointment.date %><br>
+        <b>Patient`s comment:</b>
+        <%= appointment.comment %><br>
+        
+        <% unless appointment.closed %>
+          <%= link_to "add recommendations", new_doctors_doctor_appointment_recommendation_path(current_doctor.id, appointment.id) %>
+        <% else %>
+          <div class="text-success"> closed </div>
+        <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -11,14 +11,14 @@ RSpec.feature "Doctors", type: :feature do
       page.visit new_doctor_session_path
       page.fill_in "Phone", :with => "0987654391"
       page.fill_in "Password", :with => "password123"
-      page.click_button "Log in"
+      page.click_button "Sign in"
 
       expect(page).to have_content("Your appointments:")
       expect(page).to have_content("add recommendations")
       
       page.click_link "add recommendations"
 
-      expect(page).to have_content("Create recommendation")
+      expect(page).to have_content("Add recommendation")
 
       page.fill_in "Recommendation", :with => "This is my recommendation for that case!"
       page.click_button "Create a recommendation"

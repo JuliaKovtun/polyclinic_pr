@@ -1,29 +1,32 @@
-<h1>Create recommendation</h1>
+<div class="container m-5">
+  <h4>Add recommendation:</h4>
 
-<%= form_for @recommendation, url: { action: :create } do |form| %>
+  <%= form_for @recommendation, url: { action: :create } do |form| %>
 
     <% if @recommendation.errors.any? %>
+      <div class="alert alert-danger">  
         <h4>
-            <%= pluralize(@recommendation.errors.count, "error")%>
-            prohibited this recommendation from being saved: 
+          <%= pluralize(@recommendation.errors.count, "error")%>
+          prohibited this recommendation from being saved: 
         </h4>
         <p>There were problems with the following fields:</p>
         <ul>
-            <% @recommendation.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
+          <% @recommendation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </ul> 
+      </div>
     <% end %>
     
-    <div>
-        <%= form.label :recommendation %><br>
-        <%= form.text_area :recommendation %>
-        <%= form.hidden_field :appointment_id, value: @appointment.id %>
-
+    <div class="field form-group pt-4">
+      <b><%= form.label :recommendation %></b><br>
+      <%= form.text_area :recommendation, class: "form-control w-25" %>
+      <%= form.hidden_field :appointment_id, value: @appointment.id %>
     </div>
     
     <div>
-    <%= form.submit "Create a recommendation" %>
+      <%= form.submit "Create a recommendation", class:"btn btn-primary" %>
     </div>
 
-<% end %>
+  <% end %>
+</div>

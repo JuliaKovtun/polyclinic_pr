@@ -10,7 +10,7 @@ module Users
     end
 
     def user_appointments
-      @appointments = Appointment.where(user_id: current_user.id)
+      @appointments = Appointment.where(user_id: current_user.id).reverse
     end
 
     def show_appointment
