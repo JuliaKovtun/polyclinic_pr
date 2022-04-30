@@ -35,6 +35,7 @@ gem 'activeadmin'
 gem 'bootstrap', '~> 4.2.1'
 
 gem 'jquery-rails'
+
 gem 'coffee-script-source', '~> 1.11', '>= 1.11.1'
 
 group :development, :test do
