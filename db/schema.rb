@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2022_04_27_150217) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 2022_04_27_150217) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "doctor_id"
+    t.bigint "user_id"
+    t.bigint "doctor_id"
     t.text "comment"
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
@@ -67,14 +70,14 @@ ActiveRecord::Schema.define(version: 2022_04_27_150217) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_doctors_on_category_id"
     t.index ["email"], name: "index_doctors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.integer "appointment_id"
+    t.bigint "appointment_id"
     t.text "recommendation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
