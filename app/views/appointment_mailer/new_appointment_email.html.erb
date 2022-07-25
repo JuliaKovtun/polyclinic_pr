@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You got a new appointment!</p>
+    <p>
+    Appointment details<br>
+    --------------------------
+    </p>
+    <p>When: <%= @appointment.date %></p>
+    <p>Doctor: <%= @appointment.doctor.first_name + ' ' + @appointment.doctor.last_name %></p>
+    <p>Address: Rynok street, 32</p>
+    <p>Phone: <%= @appointment.doctor.phone %></p>
+    <p>
+    Your Comment:<br>
+    <p><%= @appointment.comment %></p>
+    </p>
+    --------------------------
+  </body>
+</html>
