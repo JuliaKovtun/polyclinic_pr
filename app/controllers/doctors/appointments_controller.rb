@@ -18,9 +18,10 @@ module Doctors
       end
 
       if @appointment.save
+        AppointmentJob.perform_later(@appointment)
         redirect_to doctors_doctor_appointment_path(@doctor, @appointment)
       else
-        render "new"
+        render 'new'
       end
     end
 
