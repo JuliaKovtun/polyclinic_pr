@@ -3,7 +3,7 @@ module Doctors
     before_action :authenticate_user!, only: [:index, :show]
 
     def index
-      @doctors = Doctor.all.by_category(params[:category_id]) 
+      @doctors = Doctor.all.by_category(params[:category_id])
       @categories = Category.all
     end
 

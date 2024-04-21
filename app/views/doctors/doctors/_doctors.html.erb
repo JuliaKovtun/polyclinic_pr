@@ -1,15 +1,27 @@
 <div class="container p-5">
 <h4>Doctors:</h4>
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">Ім'я</th>
+    <th scope="col">Прізвище</th>
+    <th scope="col">Спеціалізація</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+</thead>
 
-<ul class="list-group list-group-flush p-3">
   <% @doctors.each do |doctor| %>
-    <li class="list-group-item">
-      <%= doctor.first_name %>
-      <%= doctor.last_name %> - 
-      <%= doctor.category.title %><br>
-      <%= link_to "View", doctors_doctor_path(doctor), class: "pr-3" %>
-      <%= link_to "New Appointment", new_doctors_doctor_appointment_path(doctor) %>
-    </li>
+    <tbody>
+      <tr>
+        <td><%= doctor.first_name %></td>
+        <td><%= doctor.last_name %></td>
+        <td><%= doctor.category.title %><br></td>
+        <td><%= link_to "View", doctors_doctor_path(doctor), class: "pr-3" %></td>
+        <td><%= link_to "New Appointment", new_doctors_doctor_appointment_path(doctor) %></td>
+      </tr>
+    </tbody>
+  
   <% end %>
-</ul>
+  </table>
 </div>

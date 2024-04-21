@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item active">
       <a class="nav-link" href="#default">Polyclinic</a>
     </li>
     <% if !user_signed_in? && !doctor_signed_in? %>
       <li class="nav-item">
-        <a class="nav-link" href="<%= new_user_session_path %>">sign in as a user</a>
+        <a class="nav-link" href="<%= new_user_session_path %>">Вхід</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= new_user_registration_path %>">sign up as a user</a>
+        <a class="nav-link" href="<%= new_user_registration_path %>">Реєстрація</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<%= new_doctor_session_path %>">sign in as a doctor</a>
