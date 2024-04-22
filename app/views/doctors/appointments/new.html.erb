@@ -1,5 +1,5 @@
 <div class="container m-5">
-  <h4>New Appointment </h4>
+  <h4>Новий візит</h4>
   <% #user create appointment there(user loged in) %>
   <%= form_for @appointment, url: { action: :create } do |form| %>
 
@@ -19,7 +19,7 @@
     <% end %>
 
     <div class="field form-group pt-4">
-      <div>Doctor: 
+      <div>Лікар: 
       <%= @doctor.first_name %> 
       <%= @doctor.last_name %>
       </div> 
@@ -29,25 +29,25 @@
     </div>
 
     <div class="field form-group">
-      <div>Category: <%= @doctor.category.title %></div>
+      <div>Спеціалізація: <%= @doctor.category.title %></div>
     </div>
 
     <div class="field form-group">
-      <div>Phone: <%= @doctor.phone %></div>
+      <div>Номер телефона лікаря: <%= @doctor.phone %></div>
     </div>
 
     <div class="field form-group">
-      <%= form.label "Describe your problem:" %><br>
+      <%= form.label "Опишіть свою проблему:" %><br>
       <%= form.text_area :comment, class: "form-control w-25" %>
     </div>
 
     <div class="field form-group">
-      <%= form.label "Choose the date:" %><br>
+      <%= form.label "Оберіть дату" %><br>
       <%= form.datetime_local_field :date %>
     </div>
 
     <div>
-      <%= form.submit "Create an appointment", class:"btn btn-primary" %>
+      <%= form.submit "Заплануват візит", class:"btn btn-primary" %>
     </div>
 
   <% end %>

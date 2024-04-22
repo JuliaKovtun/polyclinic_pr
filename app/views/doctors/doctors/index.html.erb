@@ -2,8 +2,8 @@
 <% # user see this when log in %>
 
 <div><%= form_with(url: doctors_doctors_path, method: :get, local: true) do |f| %></div>
-    <%= f.select :category_id, options_for_select(@categories.map{ |category| [category.title, category.id] }<<['всі', nil], selected: params[:category_id]), {}, { class: "form form-group form-control" } %>
-    <%= f.submit "find", class:"btn btn-primary" %>
+    <%= f.select :category_id, options_for_select(@categories.map{ |category| [category.title, category.id] }<<['Всі спеціалізації', nil], selected: params[:category_id]), {}, { class: "form form-group form-control" } %>
+    <%= f.submit "Знайти", class:"btn btn-primary" %>
 <% end %>
 
 <%= render "doctors/doctors/doctors" %>

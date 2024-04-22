@@ -1,26 +1,35 @@
 <div class="container p-5">
-  <h4>Your appointments:</h4>
+  <h4>Заплановані візити:</h4>
+  <br><br>
   <% #doctor can see these appointments, when login %>
-  <ul class="list-group list-group-flush p-3">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ім'я пацієнта</th>
+        <th scope="col">Номер телефону пацієнта</th>
+        <th scope="col">Дата та час візита</th>
+        <th scope="col">Коментар пацієнта</th>
+        <th scope="col">Рекомендація</th>
+      </tr>
+    </thead>
+
     <% @appointments.each do |appointment| %>
-      <li class="list-group-item">
-        <div><b>Patient`s name:</b>
-        <%= appointment.user.first_name %>
-        <%= appointment.user.last_name %><br>
-        <b>Patient`s phone:</b>
-        <%= appointment.user.phone %><br>
-        <b>Appointment date:</b>
-        <%= appointment.date %><br>
-        <b>Patient`s comment:</b>
-        <%= appointment.comment %><br>
-        
-        <% unless appointment.closed %>
-          <%= link_to "add recommendations", new_doctors_doctor_appointment_recommendation_path(current_doctor.id, appointment.id) %>
-        <% else %>
-          <div class="text-success"> closed </div>
-        <% end %>
-        </div>
-      </li>
+      <tbody>
+        <tr>
+          <td><%= appointment.user.first_name + ' ' + appointment.user.last_name %></td>
+          <td><%= appointment.user.phone %></td>
+          <td><%= appointment.date %></td>
+          <td><%= appointment.comment %></td>
+          <td>
+            <% unless appointment.closed %>
+              <%= link_to "Залишити рекомендації", new_doctors_doctor_appointment_recommendation_path(current_doctor.id, appointment.id) %>
+            <% else %>
+              <div class="text-success"> Рекомендація залишена </div>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
     <% end %>
-  </ul>
+  </table>
 </div>

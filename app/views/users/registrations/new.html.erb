@@ -1,43 +1,40 @@
 <div class="container pt-3">
-<h4>Sign up</h4>
+<h4>Реєстрація</h4>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
   
   <div class="field form-group">
-    <%= f.label :first_name %><br />
+    <%= f.label "Ім'я" %><br />
     <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :last_name %><br />
+    <%= f.label "Прізвище" %><br />
     <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
   </div>
   
   <div class="field form-group">
-    <%= f.label :phone %><br />
+    <%= f.label "Номер телефону" %><br />
     <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :email %><br />
+    <%= f.label "Електронна пошта" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <%= f.label "Пароль" %>
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "Підтвердження паролю" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-primary" %>
+    <%= f.submit "Зареєструватись", class:"btn btn-primary" %>
   </div>
 <% end %>
 

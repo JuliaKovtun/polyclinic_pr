@@ -1,30 +1,30 @@
 <br></br><br></br><br></br>
 <center>
 <% #user see this on doc viwe page %>
-<h4 class="pb-4">Doctor's information:</h4>
+<h4 class="pb-4">Інформація про лікаря:</h4>
 <p>
-  <b>First_name:</b>
+  <b>Ім'я:</b>
   <%= @doctor.first_name %>
 </p>
 
 <p>
-  <b>Last_name:</b>
+  <b>Прізвище:</b>
   <%= @doctor.last_name %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Емейл:</b>
   <%= @doctor.email %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Номер телефону:</b>
   <%= @doctor.phone %>
 </p>
 
 <p>
-  <b>Category:</b>
+  <b>Спеціалізація:</b>
   <%= @doctor.category.title %>
 </p>
 
-<%= link_to "New Appointment", new_doctors_doctor_appointment_path(@doctor), class: "btn btn-primary" %>
+<%= link_to "Запланувати візит", new_doctors_doctor_appointment_path(@doctor), class: "btn btn-primary" %>

@@ -2,53 +2,52 @@
 <center>
 <% #user can see appointment on this page %>
 <p>
-  <b>Doctor`s first name:</b>
+  <b>Ім'я лікаря:</b>
   <%= @doctor.first_name %>
 </p>
 
 <p>
-  <b>Doctor`s last name:</b>
+  <b>Прізвище лікаря:</b>
   <%= @doctor.last_name %>
 </p>
 
 <p>
-  <b>Doctor`s email:</b>
+  <b>Емейл лікаря:</b>
   <%= @doctor.email %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Номер телефона лікаря:</b>
   <%= @doctor.phone %>
 </p>
 
 <p>
-  <b>Type:</b>
+  <b>Спеціалізація лікаря:</b>
   <%= @doctor.category.title %>
 </p>
 
 <p>
-  <b>Date:</b>
+  <b>Дата візиту:</b>
   <%= @appointment.date %>
 </p>
 
 <p>
-  <b>Comment:</b>
+  <b>Проблема:</b>
   <%= @appointment.comment %>
 </p>
 
 <p>
-<h6>Your data:</h6>
-  <b>First name:</b>
+<h6>Дані:</h6>
+  <b>Ім'я:</b>
   <%= current_user.first_name %>
 </p>
 
 <p>
-  <b>Last name:</b>
+  <b>Прізвище:</b>
   <%= current_user.last_name %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Номер телефона:</b>
   <%= current_user.phone %>
 </p>
-

@@ -3,28 +3,28 @@
 <br></br><br></br><br></br>
 <center>
 
-<h4>Appointment</h4><br><br>
+<h4>Візит</h4><br><br>
 
 <p>
-<b>Doctor: </b> <%= @doctor.first_name %> 
+<b>Лікар: </b> <%= @doctor.first_name %> 
 <%= @doctor.last_name %>
 </p>
 <p>
-<b>Doctor's phone: </b><%= @doctor.phone %> 
+<b>Номер телефону лікаря: </b><%= @doctor.phone %> 
 </p>
 <p>
-  <b>Date:</b>
+  <b>Дата:</b>
   <%= @appointment.date %>
 </p>
 
 <p>
-  <b>Your comment:</b>
+  <b>Коментар:</b>
   <%= @appointment.comment %>
 </p>
 
 <% unless @recommendation.blank? %>
   <p>
-  <b>Recommendation:</b>
+  <b>Рекомендація від лікаря:</b>
   <%= @recommendation.recommendation %>
   </p>
 <% end %>
